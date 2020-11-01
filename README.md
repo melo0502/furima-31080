@@ -1,24 +1,45 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column    | Type    | Options     |
+| --------  | ------  | ----------- |
+| nickname  | string  | null: false |
+| email     | string  | null: false |
+| password  | string  | null: false |
+| name      | string  | null: false |
+| name_kana | string  | null: false |
+| birthday  | integer | null: false |
 
-* Ruby version
+## items テーブル
 
-* System dependencies
+| Column        | Type        | Options                        |
+| ------        | ------      | -----------                    |
+| title         | string      | null: false                    |
+| explanation   | text        | null: false                    |
+| category      | integer     | null: false                    |
+| status        | integer     | null: false                    |
+| delivery_fee  | integer     | null: false                    |
+| ship_form     | integer     | null: false                    |
+| delivery_days | integer     | null: false                    |
+| price         | integer     | null: false                    |
+| user          | references  | null: false, foreign_key: true |
 
-* Configuration
+## order テーブル
 
-* Database creation
+| Column    | Type       | Options                        |
+| ------    | ---------- | ------------------------------ |
+| user      | references | null: false, foreign_key: true |
+| item      | references | null: false, foreign_key: true |
 
-* Database initialization
+## address テーブル
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+| Column        | Type        | Options                        |
+| ------        | ----------  | ------------------------------ |
+| postal_card   | integer     | null: false                    |
+| prefectures   | integer     | null: false                    |
+| phone_number  | integer     | null: false                    |
+| municipality  | string      | null: false                    |
+| address       | string      | null: false                    |
+| building_name | string      | null: false                    |
+| order         | references  | null: false, foreign_key: true |
