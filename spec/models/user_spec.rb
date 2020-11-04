@@ -10,6 +10,11 @@ describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Nickname can't be blank")
     end
+    it 'emailが@マークを含んでないと登録出来ない' do
+      @user.email = 'aaa111'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Email is invalid", "Email is invalid")
+    end
     it 'emailが空では登録できない' do
       @user.email = ''
       @user.valid?
