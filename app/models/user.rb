@@ -20,4 +20,6 @@ class User < ApplicationRecord
     validates :name_sei_kana
     validates :name_name_kana
   end
+  
+  has_many :items
 end
