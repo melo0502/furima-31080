@@ -23,9 +23,9 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to :delivery_day
+  belongs_to :delivery_days
   belongs_to :delivery_fee
-  belongs_to :detail
+  belongs_to :category
   belongs_to :ship_form
   belongs_to :status
 end
