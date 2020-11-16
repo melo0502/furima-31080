@@ -15,11 +15,12 @@ class Item < ApplicationRecord
     validates :delivery_days_id 
     validates :delivery_fee_id 
     validates :category_id
-    validates :ship_form_id      
+    validates :ship_form_id 
     validates :status_id
   end
 
   belongs_to :user
+  has_one    :order
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
