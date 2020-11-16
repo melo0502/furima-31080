@@ -54,8 +54,8 @@
 
 | Column         | Type        | Options                        |
 | ------         | ----------  | ------------------------------ |
-| prefectures_id | integer     | null: false                    |
-| postal_card    | string      | null: false                    |
+| ship_form_id   | integer     | null: false                    |
+| postal_code    | string      | null: false                    |
 | phone_number   | string      | null: false                    |
 | municipality   | string      | null: false                    |
 | address        | string      | null: false                    |
