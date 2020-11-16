@@ -40,6 +40,11 @@ RSpec.describe AddressOrder, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Ship form can't be blank")
       end
+      it '都道府県が1だと購入できない' do
+        @order.ship_form_id = 1
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Ship form must be other than 1")
+      end
       it '市区町村が空だと購入できない' do
         @order.municipality = ''
         @order.valid?
@@ -57,6 +62,11 @@ RSpec.describe AddressOrder, type: :model do
       end
       it "電話番号が半角数字以外では購入できないこと" do
         @order.phone_number = 'aあaあaあa'
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Phone number is invalid. Input full-width characters.")
+      end
+      it "電話番号が12桁以上だと購入できないこと" do
+        @order.phone_number = '111111111111'
         @order.valid?
         expect(@order.errors.full_messages).to include("Phone number is invalid. Input full-width characters.")
       end

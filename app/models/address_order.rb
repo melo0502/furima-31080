@@ -5,9 +5,9 @@ class AddressOrder
   with_options presence: true do
     validates :phone_number, format: { with: /\A[0-9]{11}\z/, message: "is invalid. Input full-width characters."}
     validates :municipality, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters."}
-    validates :postal_code, format:  {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :postal_code,  format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
     validates :address
-    validates :ship_form_id
+    validates :ship_form_id, numericality: { other_than: 1 } 
     validates :token
   end
 

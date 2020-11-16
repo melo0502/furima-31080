@@ -20,7 +20,7 @@ class Item < ApplicationRecord
   end
 
   belongs_to :user
-  has_many   :orders
+  has_one    :order
   has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
