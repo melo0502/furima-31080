@@ -41,6 +41,8 @@ class OrdersController < ApplicationController
   def order_to_index
     if user_signed_in? && current_user.id == @item.user_id && @item.order.present?
       redirect_to root_path
+    elsif @item.order.present?
+      redirect_to root_path
     end
   end
 end
